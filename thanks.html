@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dziękuję</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="card"
+     {% if presence == "Będę" %}
+        <h1>Dziękuję {{ name }}! ❤️</h1>
+        <p>
+          Dziękuję że się pojawisz!<br>
+          Cieszę się :)
+        </p>
+    {% else %}
+<h1>Dziękuję za informację {{ name }}.</h1>
+     <p>
+       Szkoda że się nie zjawisz😢<br>
+     </p>
+  {% endif %}
+
+</div>
+
+</body>
+</html>

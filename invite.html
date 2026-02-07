@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zaproszenie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="card">
+    <h1>Witaj serdecznie {{ name }}! 🎉</h1>
+
+    <p>
+        Serdecznie zapraszam Cię na moją imprezę osiemnastkową!<br><br>
+
+        Już nie długo odbędzie się ta impreza i cieszyłbym się bardzo z twojej obecności, zawszę to o jeden kompan do picia więcej.<br><br>
+
+        Wszystkie potrzebne informacje znajdują się poniżej więc nie musisz się martwić o to<br><br>
+
+        📍 <b>Lokalizacja:</b> OSP Bieńkowice<br>
+        📅 <b>Data i Czas:</b> 2 Maja 2026<br>
+        🕒 <b>Godzina:</b> 19:00
+    </p>
+
+    <form action="https://formspree.io/f/xjgevoza" method="POST">
+
+        <input type="hidden" name="name" value="hiddenName">
+
+        <input type="hidden" name="_redirect"
+               value="">
+
+        <div class="choice">
+            <button name="presence" value="Będę">Pewnie że przyjdę :)</button>
+            <button name="presence" value="Nie będzie mnie">Jednak się nie pojawię :(</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
