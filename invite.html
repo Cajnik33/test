@@ -8,23 +8,28 @@
 <body>
 
 <div class="card">
-    <h1 id="welcome"></h1>
+    <h1 id="welcome">Witaj! 🎉</h1>
 
     <p>
-        Mam ogromną przyjemność zaprosić Cię na moje <b>18 urodziny 🎂</b><br><br>
-        📍 Miejsce: Dom / Sala XYZ<br>
-        📅 Data: 12.07.2026<br>
-        ⏰ Godzina: 18:00
+        Z ogromną przyjemnością, Zapraszam Cię na moją imprezę na <b>18 urodziny 🎂</b><br>
+        Mam nadzieję że zaszczycisz nas swoją obecnością na mojej imprezie :)<br>
+        Wszystkie potrzebne informacje są zawarte poniżej.<br><br>
+        📍 Lokalizacja: OSP Bieńkowice <br>
+        📅 Data: 02.05.2026<br>
+        ⏰ Godzina: 19:00
     </p>
 
-    <form action="https://formspree.io/f/xjgevoza" method="POST">
-        <input type="hidden" name="name" id="hiddenName">
-        <input type="hidden" name="_redirect"
-               value="https://cajnik33.github.io/imprezka/masz-przyjsc.html">
 
-        <button type="submit" name="attendance" value="BĘDĘ">✅ Będę!</button>
-        <button type="submit" name="attendance" value="NIE BĘDĘ">❌ Nie będę</button>
+    <form id="inviteForm">
+        <input type="hidden" name="name" id="hiddenName">
+        <input type="hidden" name="attendance" id="attendanceInput">
+
+        <button type="button" data-value="BĘDĘ">✅ Będę!</button>
+        <button type="button" data-value="NIE BĘDĘ">❌ Nie będę</button>
     </form>
+
+    <script src="script.js"></script>
+
 </div>
 
 <script src="script.js"></script>

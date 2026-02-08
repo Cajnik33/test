@@ -1,14 +1,32 @@
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
+const name = params.get("name") || "Gościu";
 
-if (name) {
-    document.getElementById("welcome").innerText =
-        "Cześć " + name + "! 🎉";
+document.getElementById("welcome").innerText = "Cześć " + name + "! 🎉";
+document.getElementById("hiddenName").value = name;
 
-    document.getElementById("hiddenName").value = name;
-}
+const form = document.getElementById("inviteForm");
+const attendanceInput = document.getElementById("attendanceInput");
 
-// WYSTRZAŁ KONFETTI
+form.addEventListener("click", async (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+
+    const attendance = e.target.dataset.value;
+    attendanceInput.value = attendance;
+
+    const formData = new FormData(form);
+
+    await fetch("https://formspree.io/f/xjgevoza", {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+    });
+
+    window.location.href =
+        `masz-przyjsc.html?name=${encodeURIComponent(name)}&presence=${encodeURIComponent(attendance)}`;
+});
+
+
+// WYSTRZAŁ KONFETTI 🎉
 window.onload = () => {
     for (let i = 0; i < 80; i++) {
         const c = document.createElement("div");
@@ -20,6 +38,7 @@ window.onload = () => {
         c.style.top = "50%";
         c.style.borderRadius = "50%";
         c.style.pointerEvents = "none";
+        c.style.opacity = "1";
 
         document.body.appendChild(c);
 
@@ -38,6 +57,7 @@ window.onload = () => {
             c.style.left = x + "px";
             c.style.top = y + "px";
             c.style.opacity -= 0.03;
+
             if (c.style.opacity <= 0) {
                 c.remove();
                 clearInterval(anim);
